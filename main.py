@@ -1,9 +1,11 @@
 from flask import Flask, jsonify
 from flask_restful import Api, Resource, reqparse
 from phishing_model import Model
+from flask_cors import CORS
 
 app = Flask(__name__)  
 api = Api(app)
+CORS(app)
 
 model_args = reqparse.RequestParser()
 model_args.add_argument("url", type=str, help="URL for model inference", required=True)
